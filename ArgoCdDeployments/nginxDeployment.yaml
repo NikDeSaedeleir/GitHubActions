@@ -6,7 +6,7 @@ metadata:
     app: biz-app
   name: biz-app
 spec:
-  replicas: 4
+  replicas: 3
   selector:
     matchLabels:
       app: biz-app
@@ -18,7 +18,7 @@ spec:
         app: biz-app
     spec:
       containers:
-        - image: nginx:7.85.1-alpine
+        - image: nginx:alpine
           name: nginx
           resources: {}
 status: {}

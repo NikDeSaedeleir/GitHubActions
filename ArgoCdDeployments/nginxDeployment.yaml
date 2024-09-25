@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: biz-app
-  name: biz-app
+    app: empty-nginx
+  name: empty-nginx
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: biz-app
+      app: empty-nginx
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: biz-app
+        app: empty-nginx
     spec:
       containers:
         - image: nginx:alpine

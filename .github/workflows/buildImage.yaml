@@ -59,7 +59,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:${{ env.CONTAINER_VERSION }}
       - name: Update YAML file
         run: |
-          sed -i 's/^[[:space:]]*- image: nikdesaedeleir\/githubactions.*/         - image: nikdesaedeleir\/githubactions:${{ env.CONTAINER_VERSION }}/'  ./ArgoCdDeployments/KafkaSenderDeployment.yaml
+          sed -i 's/^[[:space:]]*- image: nikdesaedeleir\/githubactions.*/        - image: nikdesaedeleir\/githubactions:${{ env.CONTAINER_VERSION }}/'  ./ArgoCdDeployments/KafkaSenderDeployment.yaml
 #      - run: cat ./ArgoCdDeployments/KafkaSenderDeployment.yaml
       - name: Commit changes
         run: |

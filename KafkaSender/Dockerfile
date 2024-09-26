@@ -1,6 +1,6 @@
 # Maven
 FROM maven:3.8.4-openjdk-17-slim AS builder
-WORKDIR /app
+WORKDIR ./app
 COPY ./pom.xml ./
 RUN mvn -e -B dependency:resolve
 COPY ./src ./src

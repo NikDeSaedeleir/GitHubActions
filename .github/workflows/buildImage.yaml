@@ -33,9 +33,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Build with Maven
-        working-directory: ${{env.SOURCE_DIR}}
-        run: mvn clean install
+#      - name: Build with Maven
+#        working-directory: ${{env.SOURCE_DIR}}
+#        run: mvn clean install
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2

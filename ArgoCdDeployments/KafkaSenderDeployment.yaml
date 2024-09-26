@@ -18,7 +18,7 @@ spec:
         app: empty-nginx
     spec:
       containers:
-        - image: nikdesaedeleir/githubactions:latest
+         - image: nikdesaedeleir/githubactions:0.1.41.11050945301
           name: KafkaSender
           resources: {}
 status: {}

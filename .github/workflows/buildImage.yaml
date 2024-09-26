@@ -60,7 +60,7 @@ jobs:
       - name: Update YAML file
         run: |
           sed -i 's/^\(\s*-\s*image:\s*nikdesaedeleir\/githubactions.*\)$/\1\n- image: nikdesaedeleir\/githubactions:${{ env.CONTAINER_VERSION }}/' ./ArgoCdDeployments/KafkaSenderDeployment.yaml
-
+      - run: cat ./ArgoCdDeployments/KafkaSenderDeployment.yaml
       - name: Commit changes
         run: |
             git config --local user.name "GitHub Action"

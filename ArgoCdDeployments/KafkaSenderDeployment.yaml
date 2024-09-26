@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: KafkaSender
+  name: KafkaSender
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: KafkaSender
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: empty-nginx
+    spec:
+      containers:
+        - image: nikdesaedeleir/githubactions:latest
+          name: KafkaSender
+          resources: {}
+status: {}

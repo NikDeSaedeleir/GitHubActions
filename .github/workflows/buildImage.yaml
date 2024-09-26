@@ -33,9 +33,12 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+      - name: Update version in pom.xml (Release only)
+        working-directory: ./${{env.SOURCE_DIR}}
+        run: mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }
 
 #      - name: Build with Maven
-#        working-directory: ${{env.SOURCE_DIR}}
+#        working-directory: ./${{env.SOURCE_DIR}}
 #        run: mvn clean install
 
       - name: Set up Docker Buildx
@@ -47,12 +50,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           logout: true
-      - run: ls
-      - run: ls ./${{env.SOURCE_DIR}}
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
         with:
           context: ./${{env.SOURCE_DIR}}
-#          file: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:${{ env.CONTAINER_VERSION}}

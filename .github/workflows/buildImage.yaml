@@ -7,7 +7,7 @@ on:
 env:
   CONTAINER_VERSION: latest
   DOCKER_REPO: githubactions
-  SOURCE_DIR: kafkasender
+  SOURCE_DIR: KafkaSender
 jobs:
   build:
     runs-on: ubuntu-latest

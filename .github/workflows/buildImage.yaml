@@ -1,7 +1,7 @@
 name: Build and Push Docker Image
 
 on:
-  pull_request_target:
+  push:
     branches:
       - main
 env:
@@ -13,6 +13,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: myenvironment
 
     steps:
       - name: Checkout code

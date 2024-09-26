@@ -48,6 +48,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           logout: true
       - run: ls
+      - run: ls ./${{env.SOURCE_DIR}}
       - name: Build and Push Docker image
         uses: docker/build-push-action@v5
         with:

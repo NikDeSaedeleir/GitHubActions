@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: KafkaSender
-  name: KafkaSender
+    app: kafkasender
+  name: kafkasender
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: KafkaSender
+      app: kafkasender
   strategy: {}
   template:
     metadata:
@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - image: nikdesaedeleir/githubactions:0.1.43.11051324273
-          name: KafkaSender
+          name: kafkasender
           imagePullPolicy: Always
 status: {}

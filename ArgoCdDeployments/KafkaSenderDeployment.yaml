@@ -15,7 +15,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        app: empty-nginx
+        app: kafkasender
     spec:
       containers:
         - image: nikdesaedeleir/githubactions:0.1.45.11051588996

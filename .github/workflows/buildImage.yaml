@@ -63,8 +63,8 @@ jobs:
 #      - run: cat ./ArgoCdDeployments/KafkaSenderDeployment.yaml
       - name: Commit changes
         run: |
-            git config --local user.name "GitHub Action"
-            git config --local user.email "action@github.com"
+            git config --local user.name " ${{ secrets.USERNAME }}"
+            git config --local user.email "${{ secrets.USEREMAIL }}"
             git add ./ArgoCdDeployments/KafkaSenderDeployment.yaml
-            git commit -m "Update image version in YAML file"
+            git commit -m "Update image version in YAML file to ${{ env.CONTAINER_VERSION }}"
             git push -o ci.skip

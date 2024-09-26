@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: GitHubActions
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout code

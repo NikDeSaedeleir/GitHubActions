@@ -35,7 +35,7 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Update version in pom.xml (Release only)
         working-directory: ./${{env.SOURCE_DIR}}
-        run: mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }}
+        run: mvn -B versions:set -DnewVersion=0.1.${{ github.run_number }}.${{ github.run_id }}
 
 #      - name: Build with Maven
 #        working-directory: ./${{env.SOURCE_DIR}}

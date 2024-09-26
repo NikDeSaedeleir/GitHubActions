@@ -12,7 +12,7 @@ public class KafkaSenderApplication {
         MessageConsumer consumer = apc.getBean(MessageConsumer.class);
         MessageProducer producer = apc.getBean(MessageProducer.class);
 
-        producer.sendMessage("my-topic","hallo");
+        //producer.sendMessage("kafka-test","hallo");
 
 
     }

@@ -18,7 +18,7 @@ spec:
         app: empty-nginx
     spec:
       containers:
-        - image: nikdesaedeleir/githubactions:0.1.43.11051324273
+        - image: nikdesaedeleir/githubactions:0.1.44.11051454489
           name: KafkaSender
           imagePullPolicy: Always
 status: {}

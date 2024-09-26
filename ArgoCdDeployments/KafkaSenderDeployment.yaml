@@ -18,7 +18,7 @@ spec:
         app: kafkasender
     spec:
       containers:
-        - image: nikdesaedeleir/githubactions:0.1.45.11051588996
+        - image: nikdesaedeleir/githubactions:0.1.46.11051655800
           name: kafkasender
           imagePullPolicy: Always
 status: {}

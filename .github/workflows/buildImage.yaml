@@ -51,22 +51,20 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           logout: true
-#      - name: Build and Push Docker image
-#        uses: docker/build-push-action@v5
-#        with:
-#          context: ./${{env.SOURCE_DIR}}
-#          push: true
-#          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:${{ env.CONTAINER_VERSION }}
+      - name: Build and Push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./${{env.SOURCE_DIR}}
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:${{ env.CONTAINER_VERSION }}
       - name: Update YAML file
         run: |
           sed -i 's/^[[:space:]]*- image: nikdesaedeleir\/githubactions.*/         - image: nikdesaedeleir\/githubactions:${{ env.CONTAINER_VERSION }}/'  ./ArgoCdDeployments/KafkaSenderDeployment.yaml
-#          sed -i 's/^\(\s*-\s*image:\s*nikdesaedeleir\/githubactions.*\)$/\1        - image: nikdesaedeleir\/githubactions:${{ env.CONTAINER_VERSION }}/' ./ArgoCdDeployments/KafkaSenderDeployment.yaml
-#          sed -i 's/^- image: nikdesaedeleir\/githubactions.*/        - image: nikdesaedeleir\/githubactions:${{ env.CONTAINER_VERSION }}/' ./ArgoCdDeployments/KafkaSenderDeployment.yaml
-      - run: cat ./ArgoCdDeployments/KafkaSenderDeployment.yaml
+#      - run: cat ./ArgoCdDeployments/KafkaSenderDeployment.yaml
       - name: Commit changes
         run: |
             git config --local user.name "GitHub Action"
             git config --local user.email "action@github.com"
             git add ./ArgoCdDeployments/KafkaSenderDeployment.yaml
             git commit -m "Update image version in YAML file"
-#            git push
+            git push -o ci.skip

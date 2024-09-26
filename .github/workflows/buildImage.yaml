@@ -50,4 +50,4 @@ jobs:
           context: ../KafkaSender
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/${{DOCKER_REPO}}:${{CONTAINER_VERSION}}
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_REPO }}:${{ env.CONTAINER_VERSION}}

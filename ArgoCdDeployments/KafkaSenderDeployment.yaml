@@ -20,5 +20,5 @@ spec:
       containers:
         - image: nikdesaedeleir/githubactions:0.1.43.11051324273
           name: KafkaSender
-          resources: {}
+          imagePullPolicy: Always
 status: {}
